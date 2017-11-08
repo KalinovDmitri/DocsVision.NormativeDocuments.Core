@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\common\DocsVision.Platform.DataModel.EF\DocsVision.Platform.DataModel.EF.csproj" />
+    <ProjectReference Include="..\common\DocsVision.Platform.DataModel\DocsVision.Platform.DataModel.csproj" />
+    <ProjectReference Include="..\common\Microsoft.EntityFrameworkCore.UnitOfWork\Microsoft.EntityFrameworkCore.UnitOfWork.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.DataModel.EF\DocsVision.NormativeDocuments.DataModel.EF.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.DataModel\DocsVision.NormativeDocuments.DataModel.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.Models\DocsVision.NormativeDocuments.Models.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.Services\DocsVision.NormativeDocuments.Services.csproj" />
+  </ItemGroup>
+
+</Project>

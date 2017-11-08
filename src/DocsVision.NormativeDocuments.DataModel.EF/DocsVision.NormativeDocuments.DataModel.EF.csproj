@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\common\DocsVision.Platform.DataModel.EF\DocsVision.Platform.DataModel.EF.csproj" />
+    <ProjectReference Include="..\common\DocsVision.Platform.DataModel\DocsVision.Platform.DataModel.csproj" />
+  </ItemGroup>
+
+</Project>
