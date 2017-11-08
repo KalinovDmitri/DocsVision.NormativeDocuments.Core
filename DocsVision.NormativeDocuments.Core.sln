@@ -9,21 +9,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{552ED3D2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{08CFDFE5-E265-4A01-ABC5-01ACDFEB76D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.Platform.DataModel", "src\common\DocsVision.Platform.DataModel\DocsVision.Platform.DataModel.csproj", "{30AEF4A8-BCE4-4490-860A-EC359F417235}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.Platform.DataModel", "src\common\DocsVision.Platform.DataModel\DocsVision.Platform.DataModel.csproj", "{30AEF4A8-BCE4-4490-860A-EC359F417235}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.Platform.DataModel.EF", "src\common\DocsVision.Platform.DataModel.EF\DocsVision.Platform.DataModel.EF.csproj", "{9AD67A2F-3AFD-4EFC-8A11-EEC2D3B3B24A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.Platform.DataModel.EF", "src\common\DocsVision.Platform.DataModel.EF\DocsVision.Platform.DataModel.EF.csproj", "{9AD67A2F-3AFD-4EFC-8A11-EEC2D3B3B24A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.EntityFrameworkCore.UnitOfWork", "src\common\Microsoft.EntityFrameworkCore.UnitOfWork\Microsoft.EntityFrameworkCore.UnitOfWork.csproj", "{E36DAFE6-AE45-4948-91A2-495E209B28BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.EntityFrameworkCore.UnitOfWork", "src\common\Microsoft.EntityFrameworkCore.UnitOfWork\Microsoft.EntityFrameworkCore.UnitOfWork.csproj", "{E36DAFE6-AE45-4948-91A2-495E209B28BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.NormativeDocuments.DataModel", "src\DocsVision.NormativeDocuments.DataModel\DocsVision.NormativeDocuments.DataModel.csproj", "{C371C1A3-A615-40C8-8A60-1EA896F79CFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.NormativeDocuments.DataModel", "src\DocsVision.NormativeDocuments.DataModel\DocsVision.NormativeDocuments.DataModel.csproj", "{C371C1A3-A615-40C8-8A60-1EA896F79CFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.NormativeDocuments.DataModel.EF", "src\DocsVision.NormativeDocuments.DataModel.EF\DocsVision.NormativeDocuments.DataModel.EF.csproj", "{D7FCC1CA-1956-41BB-91C1-A1A593392228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.NormativeDocuments.DataModel.EF", "src\DocsVision.NormativeDocuments.DataModel.EF\DocsVision.NormativeDocuments.DataModel.EF.csproj", "{D7FCC1CA-1956-41BB-91C1-A1A593392228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.NormativeDocuments.Models", "src\DocsVision.NormativeDocuments.Models\DocsVision.NormativeDocuments.Models.csproj", "{6B7B93B8-6466-454C-9C23-4163185304C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.NormativeDocuments.Models", "src\DocsVision.NormativeDocuments.Models\DocsVision.NormativeDocuments.Models.csproj", "{6B7B93B8-6466-454C-9C23-4163185304C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.NormativeDocuments.Services", "src\DocsVision.NormativeDocuments.Services\DocsVision.NormativeDocuments.Services.csproj", "{F2757019-7F2C-49D6-BFEC-05EBC3CBD9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.NormativeDocuments.Services", "src\DocsVision.NormativeDocuments.Services\DocsVision.NormativeDocuments.Services.csproj", "{F2757019-7F2C-49D6-BFEC-05EBC3CBD9F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.NormativeDocuments", "src\DocsVision.NormativeDocuments\DocsVision.NormativeDocuments.csproj", "{77692EC3-60D4-4B90-96F9-43A523801FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.NormativeDocuments", "src\DocsVision.NormativeDocuments\DocsVision.NormativeDocuments.csproj", "{77692EC3-60D4-4B90-96F9-43A523801FFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
