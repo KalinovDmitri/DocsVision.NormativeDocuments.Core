@@ -6,7 +6,7 @@ namespace DocsVision.Platform.DataModel.Entities
 	{
 		public string Description { get; set; }
 
-		public Guid? CardTypeID { get; set; }
+		public Guid CardTypeID { get; set; }
 
 		public Guid? SDID { get; set; }
 
@@ -39,5 +39,7 @@ namespace DocsVision.Platform.DataModel.Entities
 		public virtual CardType Type { get; set; }
 
 		public virtual SecurityInfo Security { get; set; }
+
+		public virtual BaseCardSystemInfo SystemInfo { get; set; }
 	}
 }
