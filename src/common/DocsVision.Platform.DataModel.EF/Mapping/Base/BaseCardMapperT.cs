@@ -23,7 +23,7 @@ namespace DocsVision.Platform.DataModel.Mapping
 			CardTypeID = typeID;
 		}
 
-		public override void Visit(IEntityMapperVisitor visitor)
+		public override void Accept(IEntityMapperVisitor visitor)
 		{
 			visitor.Visit(this);
 		}

@@ -34,7 +34,7 @@ namespace DocsVision.Platform.DataModel
 				throw new ArgumentNullException(nameof(entityMapper), "Entity mapper cannot be null.");
 			}
 
-			entityMapper.Visit(this);
+			entityMapper.Accept(this);
 
 			_registeredMappers.Add(entityMapper);
 		}

@@ -2,7 +2,7 @@
 
 namespace DocsVision.Platform.DataModel.Entities
 {
-	public abstract class BaseDictionaryCard : BaseCard
+	public abstract class BaseSystemCard : BaseCard
 	{
 		public override BaseCardSystemInfo SystemInfo
 		{

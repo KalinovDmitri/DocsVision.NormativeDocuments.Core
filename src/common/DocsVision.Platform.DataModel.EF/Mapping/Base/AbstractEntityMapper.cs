@@ -22,7 +22,7 @@ namespace DocsVision.Platform.DataModel.Mapping
 
 		public virtual void ResolveMetadata(IMetadataProvider metadataProvider) { }
 
-		public virtual void Visit(IEntityMapperVisitor visitor) { }
+		public virtual void Accept(IEntityMapperVisitor visitor) { }
 
 		protected abstract void MapEntity(EntityTypeBuilder<TEntity> entityBuilder);
 	}

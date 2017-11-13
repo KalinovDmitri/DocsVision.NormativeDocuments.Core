@@ -2,7 +2,7 @@
 
 namespace DocsVision.Platform.DataModel.Entities
 {
-	public class TaskList : BaseCard
+	public class TaskList : BaseSystemCard
 	{
 
 	}

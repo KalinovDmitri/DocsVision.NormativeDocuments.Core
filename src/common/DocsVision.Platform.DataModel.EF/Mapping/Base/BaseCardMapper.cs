@@ -75,6 +75,6 @@ namespace DocsVision.Platform.DataModel.Mapping
 
 		public void ResolveMetadata(IMetadataProvider metadataProvider) { }
 
-		public void Visit(IEntityMapperVisitor visitor) { }
+		public void Accept(IEntityMapperVisitor visitor) { }
 	}
 }

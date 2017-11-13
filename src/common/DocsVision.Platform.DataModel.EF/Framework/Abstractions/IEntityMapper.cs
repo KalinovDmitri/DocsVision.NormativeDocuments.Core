@@ -12,6 +12,6 @@ namespace DocsVision.Platform.DataModel
 
 		void ResolveMetadata(IMetadataProvider metadataProvider);
 
-		void Visit(IEntityMapperVisitor visitor);
+		void Accept(IEntityMapperVisitor visitor);
 	}
 }
