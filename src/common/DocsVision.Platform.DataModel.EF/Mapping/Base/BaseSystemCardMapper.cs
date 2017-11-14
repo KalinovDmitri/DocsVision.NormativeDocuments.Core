@@ -14,8 +14,7 @@ namespace DocsVision.Platform.DataModel.Mapping
 		protected override void MapEntity(EntityTypeBuilder<TSystemCard> entityBuilder)
 		{
 			base.MapEntity(entityBuilder);
-
-			entityBuilder.Ignore(x => x.SystemInfo);
+			
 		}
 	}
 }

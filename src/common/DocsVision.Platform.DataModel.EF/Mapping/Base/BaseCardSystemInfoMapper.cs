@@ -1,17 +1,16 @@
 ﻿using System;
 
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using DocsVision.Platform.DataModel.Entities;
 
 namespace DocsVision.Platform.DataModel.Mapping
 {
-	public class BaseCardSystemInfoMapper : DynamicSectionRowMapper<BaseCardSystemInfo>
+	public abstract class BaseCardSystemInfoMapper<TSystemInfo> : BaseCardSectionRowMapper<TSystemInfo> where TSystemInfo : BaseCardSystemInfo
 	{
-		public BaseCardSystemInfoMapper(Guid cardTypeID) : base(cardTypeID, "System") { }
+		protected internal BaseCardSystemInfoMapper(Guid sectionID) : base(sectionID) { }
 
-		protected override void MapEntity(EntityTypeBuilder<BaseCardSystemInfo> entityBuilder)
+		protected override void MapEntity(EntityTypeBuilder<TSystemInfo> entityBuilder)
 		{
 			base.MapEntity(entityBuilder);
 

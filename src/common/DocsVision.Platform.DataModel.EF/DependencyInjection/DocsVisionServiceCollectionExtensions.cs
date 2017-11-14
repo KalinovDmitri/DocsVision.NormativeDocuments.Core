@@ -15,9 +15,10 @@ namespace DocsVision.Platform.DataModel
 			ServiceLifetime optionsLifetime = ServiceLifetime.Scoped) where TContext : DocsVisionContext
 		{
 			services.AddSingleton(schemaFactory);
-			services.AddTransient<IMetadataProvider, MetadataProvider>();
+			services.AddSingleton<DbContextScope<MetadataContext>>();
+			services.AddSingleton<IMetadataProvider, MetadataProvider>();
 
-			services.AddDbContext<MetadataContext>(optionsAction, ServiceLifetime.Transient, ServiceLifetime.Transient);
+			services.AddDbContext<MetadataContext>(optionsAction, contextLifetime, optionsLifetime);
 			services.AddDbContext<TContext>(optionsAction, contextLifetime, optionsLifetime);
 			
 			return services;

@@ -10,11 +10,11 @@ namespace DocsVision.Platform.DataModel.Mapping
 {
 	internal class BaseCardMapper : IEntityMapper
 	{
-		private readonly Func<IDictionary<Type, Guid>> _discriminatorsFactory;
+		private readonly Func<IReadOnlyDictionary<Type, Guid>> _discriminatorsFactory;
 
 		public bool ShouldResolveMetadata => false;
 
-		public BaseCardMapper(Func<IDictionary<Type, Guid>> discriminatorsFactory)
+		public BaseCardMapper(Func<IReadOnlyDictionary<Type, Guid>> discriminatorsFactory)
 		{
 			if (discriminatorsFactory == null)
 			{
@@ -50,10 +50,6 @@ namespace DocsVision.Platform.DataModel.Mapping
 
 			entityBuilder.HasOne(x => x.Dates).WithOne()
 				.HasForeignKey<BaseCardDates>(x => x.Id)
-				.HasPrincipalKey<BaseCard>(x => x.Id);
-
-			entityBuilder.HasOne(x => x.SystemInfo).WithOne()
-				.HasForeignKey<BaseCardSystemInfo>(x => x.InstanceID)
 				.HasPrincipalKey<BaseCard>(x => x.Id);
 
 			entityBuilder.HasOne(x => x.Security).WithMany()

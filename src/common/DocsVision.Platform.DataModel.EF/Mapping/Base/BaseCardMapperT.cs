@@ -25,7 +25,7 @@ namespace DocsVision.Platform.DataModel.Mapping
 
 		public override void Accept(IEntityMapperVisitor visitor)
 		{
-			visitor.Visit(this);
+			visitor.VisitCard(this);
 		}
 
 		protected override void MapEntity(EntityTypeBuilder<TCard> entityBuilder)

@@ -4,6 +4,6 @@ namespace DocsVision.Platform.DataModel
 {
 	public interface IEntityMapperVisitor
 	{
-		void Visit(ICardMapper cardMapper);
+		void VisitCard(ICardMapper cardMapper);
 	}
 }

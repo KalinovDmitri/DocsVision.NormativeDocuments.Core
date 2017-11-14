@@ -64,6 +64,9 @@ namespace DocsVision.Platform.DataModel
 		private void RegisterCardMappers()
 		{
 			RegisterMapper(new DocumentMapper());
+			RegisterMapper(new DocumentMainInfoMapper());
+			RegisterMapper(new DocumentNumberMapper());
+			RegisterMapper(new DocumentSystemInfoMapper());
 		}
 
 		private void RegisterDictionaryMappers()
@@ -71,11 +74,11 @@ namespace DocsVision.Platform.DataModel
 
 		}
 
-		private IDictionary<Type, Guid> GetDiscriminators() => _cardDiscriminators;
+		private IReadOnlyDictionary<Type, Guid> GetDiscriminators() => _cardDiscriminators;
 
-		void IEntityMapperVisitor.Visit(ICardMapper cardConfiguration)
+		void IEntityMapperVisitor.VisitCard(ICardMapper cardMapper)
 		{
-			_cardDiscriminators[cardConfiguration.CardType] = cardConfiguration.CardTypeID;
+			_cardDiscriminators[cardMapper.CardType] = cardMapper.CardTypeID;
 		}
 	}
 }

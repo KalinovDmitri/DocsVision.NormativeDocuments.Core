@@ -39,12 +39,12 @@ namespace DocsVision.Platform.DataModel.Mapping
 			entityBuilder.ToTable(_tableName);
 
 			entityBuilder.Property(x => x.Id).HasColumnName("RowID");
+			entityBuilder.Property(x => x.Timestamp).HasColumnName("SysRowTimestamp").IsRowVersion();
 			entityBuilder.Property(x => x.ChangeServerID);
 			entityBuilder.Property(x => x.OwnServerID);
 			entityBuilder.Property(x => x.InstanceID);
 			entityBuilder.Property(x => x.ParentRowID);
 			entityBuilder.Property(x => x.ParentTreeRowID);
-			entityBuilder.Property(x => x.Timestamp).HasColumnName("SysRowTimestamp").IsRowVersion();
 
 			entityBuilder.HasKey(x => x.Id).ForSqlServerIsClustered(false);
 		}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DocsVision.Platform.DataModel.Entities
 {
@@ -39,7 +40,5 @@ namespace DocsVision.Platform.DataModel.Entities
 		public virtual CardType Type { get; set; }
 
 		public virtual SecurityInfo Security { get; set; }
-
-		public virtual BaseCardSystemInfo SystemInfo { get; set; }
 	}
 }

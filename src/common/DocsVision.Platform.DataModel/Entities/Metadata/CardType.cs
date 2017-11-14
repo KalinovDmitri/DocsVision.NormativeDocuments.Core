@@ -21,6 +21,8 @@ namespace DocsVision.Platform.DataModel.Entities
 
 		public Guid SDID { get; set; }
 
+		public string TypeName { get; set; }
+
 		public virtual CardLibrary Library { get; set; }
 
 		public virtual SecurityInfo Security { get; set; }
