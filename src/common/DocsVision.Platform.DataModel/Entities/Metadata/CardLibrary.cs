@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DocsVision.Platform.DataModel.Entities
 {
-	public sealed class CardLibrary : AbstractEntity
+	public class CardLibrary : AbstractEntity
 	{
 		public string Alias { get; set; }
 
@@ -21,5 +22,7 @@ namespace DocsVision.Platform.DataModel.Entities
 		public string MsiPatchName { get; set; }
 
 		public string MsiTransformName { get; set; }
+
+		public virtual ICollection<CardType> Cards { get; set; }
 	}
 }

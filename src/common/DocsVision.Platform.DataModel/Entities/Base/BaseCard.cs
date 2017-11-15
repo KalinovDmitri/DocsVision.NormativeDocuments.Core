@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DocsVision.Platform.DataModel.Entities
 {
@@ -6,7 +7,7 @@ namespace DocsVision.Platform.DataModel.Entities
 	{
 		public string Description { get; set; }
 
-		public Guid? CardTypeID { get; set; }
+		public Guid CardTypeID { get; set; }
 
 		public Guid? SDID { get; set; }
 

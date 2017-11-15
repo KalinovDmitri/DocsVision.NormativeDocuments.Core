@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DocsVision.Platform.DataModel.Entities
 {
@@ -29,5 +30,7 @@ namespace DocsVision.Platform.DataModel.Entities
 		public virtual CardSection ParentSection { get; set; }
 
 		public virtual CardType ParentType { get; set; }
+
+		public virtual ICollection<CardSection> Sections { get; set; }
 	}
 }
