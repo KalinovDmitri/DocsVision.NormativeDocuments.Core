@@ -12,12 +12,12 @@ namespace DocsVision.Platform.DataModel
 {
 	internal class MetadataProvider : IMetadataProvider
 	{
-		private readonly DbContextScope<MetadataContext> _contextScope;
+		private readonly IDbContextScope<MetadataContext> _contextScope;
 		private readonly ConcurrentDictionary<Guid, Dictionary<string, Guid>> _sections;
 
 		private bool _metadataLoaded;
 
-		public MetadataProvider(DbContextScope<MetadataContext> contextScope)
+		public MetadataProvider(IDbContextScope<MetadataContext> contextScope)
 		{
 			_contextScope = contextScope ?? throw new ArgumentNullException(nameof(contextScope));
 			_sections = new ConcurrentDictionary<Guid, Dictionary<string, Guid>>();

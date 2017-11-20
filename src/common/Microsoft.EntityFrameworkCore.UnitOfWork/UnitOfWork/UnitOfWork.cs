@@ -6,16 +6,16 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Microsoft.EntityFrameworkCore.UnitOfWork
 {
-	internal class UnitOfWork : IUnitOfWork
+	internal class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
 	{
 		#region Fields
 
-		private readonly IDbContextScope _contextScope;
+		private readonly IDbContextScope<TContext> _contextScope;
 		#endregion
 
 		#region Constructors
 
-		public UnitOfWork(IDbContextScope contextScope)
+		public UnitOfWork(IDbContextScope<TContext> contextScope)
 		{
 			_contextScope = contextScope;
 		}

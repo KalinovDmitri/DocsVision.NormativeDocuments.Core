@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DocsVision.Platform.DataModel\DocsVision.Platform.DataModel.csproj" />
+    <ProjectReference Include="..\Microsoft.EntityFrameworkCore.UnitOfWork\Microsoft.EntityFrameworkCore.UnitOfWork.csproj" />
   </ItemGroup>
 
 </Project>
