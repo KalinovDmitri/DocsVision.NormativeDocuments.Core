@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DocsVision.NormativeDocuments.Controllers
 {
+	[Authorize]
 	public class HomeController : Controller
 	{
 		#region Action methods
 
+		[AllowAnonymous]
+		[HttpGet]
 		public IActionResult Index()
 		{
-			return View();
+			if (User?.Identity?.IsAuthenticated ?? false) // TODO: check is user authenticated using IAccountService
+			{
+				return View();
+			}
+
+			return RedirectToAction("Login", "Account");
 		}
 		#endregion
 	}
