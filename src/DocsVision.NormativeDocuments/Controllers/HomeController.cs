@@ -13,7 +13,12 @@ namespace DocsVision.NormativeDocuments.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+			if (User?.Identity?.IsAuthenticated ?? false) // TODO: check is user authenticated using IAccountService
+			{
+				return View();
+			}
+
+			return RedirectToAction("Login", "Account");
 		}
 		#endregion
 	}
