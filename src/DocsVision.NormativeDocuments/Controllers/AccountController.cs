@@ -33,9 +33,14 @@ namespace DocsVision.NormativeDocuments.Controllers
 			if (ModelState.IsValid)
 			{
 				ClaimsPrincipal userClaims = new ClaimsPrincipal(); // TODO: try get user claims using IAccountService & LoginViewModel
+
+				ClaimsIdentity userIdentity = new ClaimsIdentity();
+				userIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString(), ClaimValueTypes.String));
+				userClaims.AddIdentity(userIdentity);
+
 				await HttpContext.SignInAsync(userClaims);
 
-				return LocalRedirect(returnUrl);
+				return RedirectToLocal(returnUrl);
 			}
 
 			return View(model);
@@ -47,6 +52,21 @@ namespace DocsVision.NormativeDocuments.Controllers
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
 			return RedirectToAction(nameof(Login));
+		}
+		#endregion
+
+		#region Helpers
+
+		private IActionResult RedirectToLocal(string returnUrl)
+		{
+			if (returnUrl != null && Url.IsLocalUrl(returnUrl))
+			{
+				return LocalRedirect(returnUrl);
+			}
+			else
+			{
+				return RedirectToAction(nameof(HomeController.Index), "Home");
+			}
 		}
 		#endregion
 	}
