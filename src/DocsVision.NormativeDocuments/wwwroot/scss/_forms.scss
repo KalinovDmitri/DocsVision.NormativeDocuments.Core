@@ -5,19 +5,19 @@
 	background-color: $theme-primary;
 	padding: 5px;
 	margin-top: 10px;
+}
 
-	.form__btn {
-		padding: 9px 15px;
-		cursor: pointer;
-		margin-left: 0;
-		background-color: #008FBC;
-		outline: none;
-		border: 0;
-		color: #F0F0F0;
+.form__btn {
+	padding: 9px 15px;
+	cursor: pointer;
+	margin-left: 0;
+	background-color: #008FBC;
+	outline: none;
+	border: 0;
+	color: #F0F0F0;
 
-		&:hover {
-			background-color: lighten(#008FBC, 2%);
-		}
+	&:hover {
+		background-color: lighten(#008FBC, 2%);
 	}
 }
 

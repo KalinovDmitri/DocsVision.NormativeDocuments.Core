@@ -160,16 +160,17 @@ section.success {
   background-color: #2C3E50;
   padding: 5px;
   margin-top: 10px; }
-  .form__btn-holder .form__btn {
-    padding: 9px 15px;
-    cursor: pointer;
-    margin-left: 0;
-    background-color: #008FBC;
-    outline: none;
-    border: 0;
-    color: #F0F0F0; }
-    .form__btn-holder .form__btn:hover {
-      background-color: #0097c6; }
+
+.form__btn {
+  padding: 9px 15px;
+  cursor: pointer;
+  margin-left: 0;
+  background-color: #008FBC;
+  outline: none;
+  border: 0;
+  color: #F0F0F0; }
+  .form__btn:hover {
+    background-color: #0097c6; }
 
 .form__input-holder {
   padding: 0 14px; }
@@ -303,6 +304,7 @@ footer {
   line-height: 6;
   margin: 40px 20px 20px 40px;
   min-height: 10vh;
+  min-width: 250px;
   text-align: center;
   vertical-align: middle; }
 
