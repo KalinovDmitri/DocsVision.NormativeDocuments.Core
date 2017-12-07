@@ -154,6 +154,36 @@ section.success {
     #mainNav.navbar-shrink .navbar-brand {
       font-size: 1.5em; } }
 
+.form__btn-holder {
+  text-align: right;
+  position: relative;
+  background-color: #2C3E50;
+  padding: 5px;
+  margin-top: 10px; }
+  .form__btn-holder .form__btn {
+    padding: 9px 15px;
+    cursor: pointer;
+    margin-left: 0;
+    background-color: #008FBC;
+    outline: none;
+    border: 0;
+    color: #F0F0F0; }
+    .form__btn-holder .form__btn:hover {
+      background-color: #0097c6; }
+
+.form__input-holder {
+  padding: 0 14px; }
+
+.errorText {
+  position: absolute;
+  top: 13px;
+  color: red; }
+
+input {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px; }
+
 .login {
   position: fixed;
   top: 0;
@@ -176,32 +206,6 @@ section.success {
     color: #ffffff;
     background-color: #2C3E50;
     padding: 10px 14px 10px 14px; }
-  .login .login__btn-holder {
-    text-align: right;
-    position: relative;
-    background-color: #2C3E50;
-    padding: 5px;
-    margin-top: 10px; }
-    .login .login__btn-holder .login__btn {
-      padding: 9px 15px;
-      cursor: pointer;
-      margin-left: 0;
-      background-color: #008FBC;
-      outline: none;
-      border: 0;
-      color: #F0F0F0; }
-      .login .login__btn-holder .login__btn:hover {
-        background-color: #0097c6; }
-  .login .login__input-holder {
-    padding: 0 14px; }
-  .login .errorText {
-    position: absolute;
-    top: 13px;
-    color: red; }
-  .login input {
-    width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 10px; }
 
 header.masthead {
   padding-top: 100px;
@@ -289,6 +293,31 @@ footer {
   footer .footer-below {
     padding: 25px 0;
     background-color: #2c3e50; }
+
+.dashboard-button {
+  background: #2C3E50;
+  border: transparent;
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  line-height: 6;
+  margin: 40px 20px 20px 40px;
+  min-height: 10vh;
+  text-align: center;
+  vertical-align: middle; }
+
+.dashboard-button-icon {
+  background: no-repeat top left;
+  background-size: contain;
+  cursor: pointer;
+  display: inline-block;
+  max-height: 6vh;
+  max-width: 6vh;
+  vertical-align: central; }
+
+.dashboard-button-text {
+  font-size: 1.5em;
+  vertical-align: central; }
 
 .btn-outline {
   font-size: 20px;

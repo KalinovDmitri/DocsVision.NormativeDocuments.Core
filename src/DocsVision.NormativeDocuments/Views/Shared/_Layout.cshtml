@@ -25,9 +25,9 @@
 		</environment>
 	</head>
 	<body id="page-top">
-		@await Html.PartialAsync("_Navigation");
-		@RenderBody();
-		@await RenderSectionAsync("Scripts", required: false);
+		@await Html.PartialAsync("_Navigation")
+		@RenderBody()
+		@await RenderSectionAsync("Scripts", required: false)
 	</body>
 </html>
 
