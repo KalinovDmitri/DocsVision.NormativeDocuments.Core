@@ -85,6 +85,7 @@ namespace DocsVision.NormativeDocuments
 #endif
 		}
 
+
 		private void ConfigureRoutes(IRouteBuilder routeBuilder)
 		{
 			routeBuilder.MapRoute(

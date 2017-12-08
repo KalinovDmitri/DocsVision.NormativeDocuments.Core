@@ -1,0 +1,24 @@
+﻿@using DocsVision.NormativeDocuments.Models
+@model DocsVision.NormativeDocuments.Models.LoginViewModel
+@{
+		ViewData["Title"] = "Вход";
+}
+
+<div class="login">
+	<div class="login-tbc">
+		<div class="login__container">
+			<div class="login_header">Вход на сайт</div>
+			<form asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+				<div class="form__input-holder">
+					<input type="text" asp-for="Username" placeholder="Имя пользователя" />
+				</div>
+				<div class="form__input-holder">
+					<input type="password" asp-for="Password" placeholder="Пароль" />
+				</div>
+				<div class="form__btn-holder">
+					<button type="submit" class="form__btn">Вход</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

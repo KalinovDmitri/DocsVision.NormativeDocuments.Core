@@ -1,13 +1,10 @@
-﻿
-@{
-	Layout = null;
+﻿@{
+		ViewData["Title"] = "Сервисы DocsVision";
 }
-<!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<title>Index</title>
-</head>
-<body>
-</body>
-</html>
+
+<div>
+	<a class="btn btn-default dashboard-button col-md-2" asp-controller="NormativeDocuments" asp-action="Export">
+		<img class="dashboard-button-icon" src="~/images/export_icon.svg" />
+		<text class="dashboard-button-text">Экспорт ЛНД</text>
+	</a>
+</div>

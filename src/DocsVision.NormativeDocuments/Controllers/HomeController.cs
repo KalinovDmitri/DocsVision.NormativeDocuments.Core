@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Authorization;
@@ -17,7 +18,7 @@ namespace DocsVision.NormativeDocuments.Controllers
 		[HttpGet]
 		public IActionResult Index()
 		{
-			if (User?.Identity?.IsAuthenticated ?? false) // TODO: check is user authenticated using IAccountService
+			if (User?.FindFirst(ClaimTypes.NameIdentifier) != null) // TODO: check is user authenticated using IAccountService
 			{
 				return View();
 			}
