@@ -21,26 +21,16 @@
 {
 	<script type="text/javascript">
 		$(function () {
+			$.datetimepicker.setLocale('ru');
+
 			jQuery('#startDatePicker').datetimepicker({
-				lang: 'ru',
 				format: 'd M Y',
-				timepicker: false,
-				onShow: function (ct) {
-					this.setOptions({
-						maxDate: jQuery('#endDatePicker').val() ? jQuery('#endDatePicker').val() : false
-					})
-				}
+				timepicker: false
 			});
 
 			jQuery('#endDatePicker').datetimepicker({
-				lang: 'ru',
 				format: 'd M Y',
-				timepicker: false,
-				onShow: function (ct) {
-					this.setOptions({
-						minDate: jQuery('#startDatePicker').val() ? jQuery('#startDatePicker').val() : false
-					})
-				}
+				timepicker: false
 			});
 		});
 	</script>
