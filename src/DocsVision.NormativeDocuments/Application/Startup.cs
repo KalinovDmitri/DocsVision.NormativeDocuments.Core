@@ -21,13 +21,16 @@ namespace DocsVision.NormativeDocuments
 		#region Fields and properties
 
 		public IConfiguration Configuration { get; }
+
+		public IHostingEnvironment Environment { get; }
 		#endregion
 
 		#region Constructors
 
-		public Startup(IConfiguration configuration)
+		public Startup(IConfiguration configuration, IHostingEnvironment environment)
 		{
 			Configuration = configuration;
+			Environment = environment;
 		}
 		#endregion
 
