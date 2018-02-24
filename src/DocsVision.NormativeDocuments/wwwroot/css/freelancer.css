@@ -175,6 +175,9 @@ section.success {
 .form__input-holder {
   padding: 0 14px; }
 
+.form__label-holder {
+  padding-top: 1.5vh; }
+
 .errorText {
   position: absolute;
   top: 13px;
