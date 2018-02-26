@@ -7,10 +7,18 @@ namespace Microsoft.Extensions.DependencyInjection
 {
 	public static class ServiceCollectionExtensions
 	{
+		public static IServiceCollection AddDbContextScope<TContext>(this IServiceCollection services) where TContext : DbContext
+		{
+			services.AddSingleton<IDbContextScope<TContext>, DbContextScope<TContext>>();
+
+			return services;
+		}
+
 		public static IServiceCollection AddUnitOfWork<TContext>(this IServiceCollection services) where TContext : DbContext
 		{
-			services.AddSingleton<IDbContextScope, DbContextScope<TContext>>();
-			services.AddSingleton<IUnitOfWork, UnitOfWork>();
+			services.AddSingleton<IDbContextScope<TContext>, DbContextScope<TContext>>();
+			services.AddSingleton<IUnitOfWork, UnitOfWork<TContext>>();
+
 			return services;
 		}
 	}
