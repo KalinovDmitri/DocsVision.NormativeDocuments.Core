@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\common\DocsVision.Platform.DataModel.EF\DocsVision.Platform.DataModel.EF.csproj" />
+    <ProjectReference Include="..\common\DocsVision.Platform.DataModel\DocsVision.Platform.DataModel.csproj" />
+    <ProjectReference Include="..\common\Microsoft.EntityFrameworkCore.UnitOfWork\Microsoft.EntityFrameworkCore.UnitOfWork.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.DataModel.EF\DocsVision.NormativeDocuments.DataModel.EF.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.DataModel\DocsVision.NormativeDocuments.DataModel.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.Models\DocsVision.NormativeDocuments.Models.csproj" />
+  </ItemGroup>
+
+</Project>
