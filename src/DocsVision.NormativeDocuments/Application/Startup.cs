@@ -72,8 +72,22 @@ namespace DocsVision.NormativeDocuments
 
 		private void ConfigureAuthentication(IServiceCollection services)
 		{
-
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(BuildCookieAuthenticationOptions);
 		}
+
+		private void BuildCookieAuthenticationOptions(CookieAuthenticationOptions options)
+		{
+			options.ClaimsIssuer = "DocsVision";
+			options.LoginPath = new PathString("/Account/Login");
+			options.LogoutPath = new PathString("/Account/Logout");
+			options.ExpireTimeSpan = TimeSpan.FromDays(14.0);
+			options.SlidingExpiration = true;
+#if DEBUG
+			options.Validate();
+#endif
+		}
+
 
 		private void ConfigureRoutes(IRouteBuilder routeBuilder)
 		{

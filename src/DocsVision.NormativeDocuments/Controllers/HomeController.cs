@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,12 @@ namespace DocsVision.NormativeDocuments.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+			if (User?.FindFirst(ClaimTypes.NameIdentifier) != null) // TODO: check is user authenticated using IAccountService
+			{
+				return View();
+			}
+
+			return RedirectToAction("Login", "Account");
 		}
 		#endregion
 	}

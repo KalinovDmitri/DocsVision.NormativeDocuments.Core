@@ -1,0 +1,42 @@
+﻿
+.form__btn-holder {
+	text-align: right;
+	position: relative;
+	background-color: $theme-primary;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.form__btn {
+	padding: 9px 15px;
+	cursor: pointer;
+	margin-left: 0;
+	background-color: #008FBC;
+	outline: none;
+	border: 0;
+	color: #F0F0F0;
+
+	&:hover {
+		background-color: lighten(#008FBC, 2%);
+	}
+}
+
+.form__input-holder {
+	padding: 0 14px;
+}
+
+.form__label-holder {
+	padding-top: 1.5vh;
+}
+
+.errorText {
+	position: absolute;
+	top: 13px;
+	color: red;
+}
+
+input {
+	width: 100%;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+}
