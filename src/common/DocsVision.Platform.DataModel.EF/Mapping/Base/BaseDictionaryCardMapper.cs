@@ -14,7 +14,6 @@ namespace DocsVision.Platform.DataModel.Mapping
 		protected override void MapEntity(EntityTypeBuilder<TDictionary> entityBuilder)
 		{
 			base.MapEntity(entityBuilder);
-			
 		}
 	}
 }
