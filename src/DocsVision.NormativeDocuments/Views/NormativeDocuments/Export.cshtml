@@ -1,52 +1,77 @@
-﻿
-<div class="col-md-6" style="padding-left:50px;">
+﻿@model ExportViewModel
+@{
+	var kindsList = new List<SelectListItem>();
+	foreach (var kind in Model.Kinds)
+	{
+		kindsList.Add(new SelectListItem
+		{
+			Text = kind.Name,
+			Value = kind.Id
+		});
+	}
+}
+
+<div class="col-md-5" style="padding-left:50px;">
 	<div class="panel-heading">
 		<h3>Экспорт нормативных документов</h3>
 	</div>
 	<div class="panel-body">
-		<form asp-controller="NormativeDocuments" asp-action="Export" method="post">
+		@using (Html.BeginForm("Export", "NormativeDocuments", FormMethod.Post))
+		{
 			<div class="form-horizontal">
 				<div class="col-md-3 form__label-holder">
 					<label>Вид ЛНД</label>
 				</div>
-				<div class="col-md-7 form__input-holder">
-					<input type="text" />
+				<div class="col-md-5 form__input-holder">
+					<select asp-for="SelectedKind" asp-items="kindsList"></select>
 				</div>
+				<br />
+				<br />
+				<br />
 			</div>
+
 			<div class="form-horizontal">
 				<div class="col-md-3 form__label-holder">
 					<label>Начало периода</label>
 				</div>
-				<div class="col-md-7 form__input-holder">
-					<input id="startDatePicker" type="text" />
+				<div class="col-md-5 form__input-holder">
+					<input asp-for="StartDate" />
 				</div>
+				<br />
+				<br />
+				<br />
 			</div>
+
 			<div class="form-horizontal">
 				<div class="col-md-3 form__label-holder">
 					<label>Конец периода</label>
 				</div>
-				<div class="col-md-7 form__input-holder">
-					<input id="endDatePicker" type="text" />
+				<div class="col-md-5 form__input-holder">
+					<input asp-for="EndDate" />
 				</div>
+				<br />
+				<br />
+				<br />
 			</div>
+
 			<div class="form-horizontal">
 				<div class="col-md-6" style="padding-top: 20px;">
 					<button class="form-control form__btn" style="min-height: 8vh;" type="submit">Экспорт</button>
 				</div>
 			</div>
-		</form>
+		}
 	</div>
 </div>
 
 @section Scripts
-{
+	{
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$.datetimepicker.setLocale('ru');
-			
-			var startDatePicker = jQuery('#startDatePicker'),
-				endDatePicker = jQuery('#endDatePicker');
-			
+
+			var startDatePicker = $('#@Html.IdFor(x => x.StartDate)'),
+				endDatePicker = $('#@Html.IdFor(x => x.EndDate)');
+
 			var startDatePickerLogic = function (currentDateTime) {
 				startDatePicker.attr('selected-date', currentDateTime.format('yyyy/mm/dd'));
 
