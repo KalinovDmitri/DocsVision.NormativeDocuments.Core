@@ -81,6 +81,7 @@ namespace DocsVision.NormativeDocuments
 
 		private void ConfigureApplicationServices(IServiceCollection services)
 		{
+			services.AddSingleton<AccountService>();
 			services.AddSingleton<NormativeDocumentsService>();
 		}
 

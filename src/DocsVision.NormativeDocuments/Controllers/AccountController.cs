@@ -8,12 +8,26 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using DocsVision.NormativeDocuments.Models;
+using DocsVision.NormativeDocuments.Services;
 
 namespace DocsVision.NormativeDocuments.Controllers
 {
 	[Authorize]
-	public class AccountController : Controller
+	public class AccountController : ApplicationControllerBase
 	{
+		#region Fields
+
+		private AccountService _accountService;
+		#endregion
+
+		#region Constructors
+
+		public AccountController(AccountService accountService) : base()
+		{
+			_accountService = accountService;
+		}
+		#endregion
+
 		#region Action methods
 
 		[AllowAnonymous]
@@ -32,13 +46,13 @@ namespace DocsVision.NormativeDocuments.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				ClaimsPrincipal userClaims = new ClaimsPrincipal(); // TODO: try get user claims using IAccountService & LoginViewModel
+				var userClaims = await _accountService.LoginAsync(model, CookieAuthenticationDefaults.AuthenticationScheme);
 
-				ClaimsIdentity userIdentity = new ClaimsIdentity();
-				userIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString(), ClaimValueTypes.String));
-				userClaims.AddIdentity(userIdentity);
-
-				await HttpContext.SignInAsync(userClaims);
+				await HttpContext.SignInAsync(userClaims, new AuthenticationProperties
+				{
+					AllowRefresh = true,
+					IsPersistent = true
+				});
 
 				return RedirectToLocal(returnUrl);
 			}
@@ -52,21 +66,6 @@ namespace DocsVision.NormativeDocuments.Controllers
 			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
 			return RedirectToAction(nameof(Login));
-		}
-		#endregion
-
-		#region Helpers
-
-		private IActionResult RedirectToLocal(string returnUrl)
-		{
-			if (returnUrl != null && Url.IsLocalUrl(returnUrl))
-			{
-				return LocalRedirect(returnUrl);
-			}
-			else
-			{
-				return RedirectToAction(nameof(HomeController.Index), "Home");
-			}
 		}
 		#endregion
 	}

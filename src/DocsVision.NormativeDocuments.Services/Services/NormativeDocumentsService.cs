@@ -7,8 +7,13 @@ using DocsVision.NormativeDocuments.Models;
 
 namespace DocsVision.NormativeDocuments.Services
 {
-	public class NormativeDocumentsService
+	public class NormativeDocumentsService : ApplicationServiceBase
 	{
+		#region Constructors
+
+		public NormativeDocumentsService() : base() { }
+		#endregion
+
 		#region Public class methods
 
 		public ExportViewModel CreateExportModel()

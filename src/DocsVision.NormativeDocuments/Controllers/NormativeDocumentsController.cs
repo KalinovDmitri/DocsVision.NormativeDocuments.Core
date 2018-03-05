@@ -10,7 +10,7 @@ using DocsVision.NormativeDocuments.Services;
 
 namespace DocsVision.NormativeDocuments.Controllers
 {
-	public class NormativeDocumentsController : Controller
+	public class NormativeDocumentsController : ApplicationControllerBase
 	{
 		#region Fields
 

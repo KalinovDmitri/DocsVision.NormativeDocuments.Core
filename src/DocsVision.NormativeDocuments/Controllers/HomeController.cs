@@ -7,23 +7,37 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using DocsVision.NormativeDocuments.Services;
+
 namespace DocsVision.NormativeDocuments.Controllers
 {
-	[Authorize]
-	public class HomeController : Controller
+	public class HomeController : ApplicationControllerBase
 	{
+		#region Fields
+
+		private AccountService _accountService;
+		#endregion
+
+		#region Constructors
+
+		public HomeController(AccountService accountService) : base()
+		{
+			_accountService = accountService;
+		}
+		#endregion
+
 		#region Action methods
 
 		[AllowAnonymous]
 		[HttpGet]
 		public IActionResult Index()
 		{
-			if (User?.FindFirst(ClaimTypes.NameIdentifier) != null) // TODO: check is user authenticated using IAccountService
+			if (_accountService.IsSignedIn(User))
 			{
 				return View();
 			}
 
-			return RedirectToAction("Login", "Account");
+			return RedirectToAction(nameof(AccountController.Login), "Account");
 		}
 		#endregion
 	}
