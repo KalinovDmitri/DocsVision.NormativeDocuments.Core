@@ -188,6 +188,11 @@ input {
   padding: 10px 15px;
   margin-bottom: 10px; }
 
+select {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px; }
+
 .login {
   position: fixed;
   top: 0;

@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using DocsVision.NormativeDocuments.Configuration;
+using DocsVision.NormativeDocuments.Providers;
 using DocsVision.NormativeDocuments.Services;
 
 namespace DocsVision.NormativeDocuments
@@ -75,12 +77,17 @@ namespace DocsVision.NormativeDocuments
 
 		private void ConfigureAuthentication(IServiceCollection services)
 		{
-			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+			services
+				.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 				.AddCookie(BuildCookieAuthenticationOptions);
 		}
 
 		private void ConfigureApplicationServices(IServiceCollection services)
 		{
+			services.Configure<ActiveDirectoryConfiguration>(Configuration.GetSection("Ldap"));
+
+			services.AddSingleton<IApplicationUserProvider, ActiveDirectoryUserProvider>();
+
 			services.AddSingleton<AccountService>();
 			services.AddSingleton<NormativeDocumentsService>();
 		}
@@ -92,6 +99,7 @@ namespace DocsVision.NormativeDocuments
 			options.LogoutPath = new PathString("/Account/Logout");
 			options.ExpireTimeSpan = TimeSpan.FromDays(14.0);
 			options.SlidingExpiration = true;
+
 #if DEBUG
 			options.Validate();
 #endif

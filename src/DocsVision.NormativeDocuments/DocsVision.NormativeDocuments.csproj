@@ -15,12 +15,14 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+    <PackageReference Include="Novell.Directory.Ldap.NETStandard2_0" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\common\DocsVision.Platform.DataModel.EF\DocsVision.Platform.DataModel.EF.csproj" />
     <ProjectReference Include="..\common\DocsVision.Platform.DataModel\DocsVision.Platform.DataModel.csproj" />
     <ProjectReference Include="..\common\Microsoft.EntityFrameworkCore.UnitOfWork\Microsoft.EntityFrameworkCore.UnitOfWork.csproj" />
+    <ProjectReference Include="..\DocsVision.NormativeDocuments.Common\DocsVision.NormativeDocuments.Common.csproj" />
     <ProjectReference Include="..\DocsVision.NormativeDocuments.DataModel.EF\DocsVision.NormativeDocuments.DataModel.EF.csproj" />
     <ProjectReference Include="..\DocsVision.NormativeDocuments.DataModel\DocsVision.NormativeDocuments.DataModel.csproj" />
     <ProjectReference Include="..\DocsVision.NormativeDocuments.Models\DocsVision.NormativeDocuments.Models.csproj" />

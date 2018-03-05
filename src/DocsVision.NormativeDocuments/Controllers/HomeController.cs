@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using DocsVision.NormativeDocuments.Models;
 using DocsVision.NormativeDocuments.Services;
 
 namespace DocsVision.NormativeDocuments.Controllers
@@ -38,6 +40,17 @@ namespace DocsVision.NormativeDocuments.Controllers
 			}
 
 			return RedirectToAction(nameof(AccountController.Login), "Account");
+		}
+
+		[AllowAnonymous]
+		[HttpGet]
+		public IActionResult Error()
+		{
+			var model = new ErrorViewModel
+			{
+				RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+			};
+			return View(model);
 		}
 		#endregion
 	}

@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+using Microsoft.Extensions.Logging;
+
 using DocsVision.NormativeDocuments.Models;
+using DocsVision.NormativeDocuments.Providers;
 
 namespace DocsVision.NormativeDocuments.Services
 {
 	public class AccountService : ApplicationServiceBase
 	{
+		#region Fields
+
+		private readonly IApplicationUserProvider _userProvider;
+		#endregion
+
 		#region Constructors
 
-		public AccountService() : base() { }
+		public AccountService(IApplicationUserProvider userProvider, ILogger logger) : base(logger)
+		{
+			_userProvider = userProvider;
+		}
 		#endregion
 
 		#region Public class methods
@@ -34,16 +45,21 @@ namespace DocsVision.NormativeDocuments.Services
 		{
 			await Task.Delay(500);
 
-			ClaimsPrincipal userClaims = new ClaimsPrincipal(); // TODO: try get user claims using IAccountService & LoginViewModel
+			if (_userProvider.IsUserRegistered(loginModel.Username, loginModel.Password))
+			{
+				ClaimsPrincipal userClaims = new ClaimsPrincipal();
 
-			ClaimsIdentity userIdentity = new ClaimsIdentity(authenticationType);
+				ClaimsIdentity userIdentity = new ClaimsIdentity(authenticationType);
 
-			userIdentity.AddClaim(new Claim(ClaimTypes.Name, loginModel.Username, ClaimValueTypes.String));
-			userIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString(), ClaimValueTypes.String));
+				userIdentity.AddClaim(new Claim(ClaimTypes.Name, loginModel.Username, ClaimValueTypes.String));
+				userIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString(), ClaimValueTypes.String));
 
-			userClaims.AddIdentity(userIdentity);
+				userClaims.AddIdentity(userIdentity);
 
-			return userClaims;
+				return userClaims;
+			}
+
+			return null;
 		}
 		#endregion
 	}

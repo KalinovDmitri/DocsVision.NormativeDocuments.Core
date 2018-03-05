@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
+using Microsoft.Extensions.Logging;
+
 using DocsVision.NormativeDocuments.Models;
 
 namespace DocsVision.NormativeDocuments.Services
@@ -11,7 +13,7 @@ namespace DocsVision.NormativeDocuments.Services
 	{
 		#region Constructors
 
-		public NormativeDocumentsService() : base() { }
+		public NormativeDocumentsService(ILogger logger) : base(logger) { }
 		#endregion
 
 		#region Public class methods

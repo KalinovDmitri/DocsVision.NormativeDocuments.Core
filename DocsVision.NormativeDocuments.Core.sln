@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DB3CCB27-552C-4916-8398-A00983F0DEE7}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.NormativeDocuments.Services", "src\DocsVision.NormativeDocuments.Services\DocsVision.NormativeDocuments.Services.csproj", "{F2757019-7F2C-49D6-BFEC-05EBC3CBD9F8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocsVision.NormativeDocuments", "src\DocsVision.NormativeDocuments\DocsVision.NormativeDocuments.csproj", "{77692EC3-60D4-4B90-96F9-43A523801FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsVision.NormativeDocuments.Common", "src\DocsVision.NormativeDocuments.Common\DocsVision.NormativeDocuments.Common.csproj", "{FBDC3449-97B6-4140-989D-A680C57A93B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{77692EC3-60D4-4B90-96F9-43A523801FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77692EC3-60D4-4B90-96F9-43A523801FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77692EC3-60D4-4B90-96F9-43A523801FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDC3449-97B6-4140-989D-A680C57A93B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDC3449-97B6-4140-989D-A680C57A93B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDC3449-97B6-4140-989D-A680C57A93B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDC3449-97B6-4140-989D-A680C57A93B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{6B7B93B8-6466-454C-9C23-4163185304C4} = {DB3CCB27-552C-4916-8398-A00983F0DEE7}
 		{F2757019-7F2C-49D6-BFEC-05EBC3CBD9F8} = {DB3CCB27-552C-4916-8398-A00983F0DEE7}
 		{77692EC3-60D4-4B90-96F9-43A523801FFB} = {DB3CCB27-552C-4916-8398-A00983F0DEE7}
+		{FBDC3449-97B6-4140-989D-A680C57A93B6} = {DB3CCB27-552C-4916-8398-A00983F0DEE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22CC5E50-1104-4F46-ACDF-D4AEF3B3BE73}

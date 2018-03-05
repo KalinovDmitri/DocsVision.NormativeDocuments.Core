@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Authentication;
@@ -12,7 +11,6 @@ using DocsVision.NormativeDocuments.Services;
 
 namespace DocsVision.NormativeDocuments.Controllers
 {
-	[Authorize]
 	public class AccountController : ApplicationControllerBase
 	{
 		#region Fields
@@ -47,14 +45,16 @@ namespace DocsVision.NormativeDocuments.Controllers
 			if (ModelState.IsValid)
 			{
 				var userClaims = await _accountService.LoginAsync(model, CookieAuthenticationDefaults.AuthenticationScheme);
-
-				await HttpContext.SignInAsync(userClaims, new AuthenticationProperties
+				if (userClaims != null)
 				{
-					AllowRefresh = true,
-					IsPersistent = true
-				});
+					await HttpContext.SignInAsync(userClaims, new AuthenticationProperties
+					{
+						AllowRefresh = true,
+						IsPersistent = true
+					});
 
-				return RedirectToLocal(returnUrl);
+					return RedirectToLocal(returnUrl);
+				}
 			}
 
 			return View(model);
