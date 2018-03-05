@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using DocsVision.NormativeDocuments.Services;
+
 namespace DocsVision.NormativeDocuments
 {
 	public class Startup
@@ -21,13 +23,16 @@ namespace DocsVision.NormativeDocuments
 		#region Fields and properties
 
 		public IConfiguration Configuration { get; }
+
+		public IHostingEnvironment Environment { get; }
 		#endregion
 
 		#region Constructors
 
-		public Startup(IConfiguration configuration)
+		public Startup(IConfiguration configuration, IHostingEnvironment environment)
 		{
 			Configuration = configuration;
+			Environment = environment;
 		}
 		#endregion
 
@@ -37,6 +42,7 @@ namespace DocsVision.NormativeDocuments
 		{
 			ConfigureDatabase(services);
 			ConfigureAuthentication(services);
+			ConfigureApplicationServices(services);
 			
 			services.AddMvc();
 		}
@@ -71,6 +77,11 @@ namespace DocsVision.NormativeDocuments
 		{
 			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 				.AddCookie(BuildCookieAuthenticationOptions);
+		}
+
+		private void ConfigureApplicationServices(IServiceCollection services)
+		{
+			services.AddSingleton<NormativeDocumentsService>();
 		}
 
 		private void BuildCookieAuthenticationOptions(CookieAuthenticationOptions options)
