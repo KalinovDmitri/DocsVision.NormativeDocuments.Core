@@ -1,0 +1,108 @@
+﻿@model ExportViewModel
+@{
+	var kindsList = new List<SelectListItem>();
+	foreach (var kind in Model.Kinds)
+	{
+		kindsList.Add(new SelectListItem
+		{
+			Text = kind.Name,
+			Value = kind.Id
+		});
+	}
+}
+
+<div class="col-md-5" style="padding-left:50px;">
+	<div class="panel-heading">
+		<h3>Экспорт нормативных документов</h3>
+	</div>
+	<div class="panel-body">
+		@using (Html.BeginForm("Export", "NormativeDocuments", FormMethod.Post))
+		{
+			<div class="form-horizontal">
+				<div class="col-md-3 form__label-holder">
+					<label>Вид ЛНД</label>
+				</div>
+				<div class="col-md-5 form__input-holder">
+					<select asp-for="SelectedKind" asp-items="kindsList"></select>
+				</div>
+				<br />
+				<br />
+				<br />
+			</div>
+
+			<div class="form-horizontal">
+				<div class="col-md-3 form__label-holder">
+					<label>Начало периода</label>
+				</div>
+				<div class="col-md-5 form__input-holder">
+					<input asp-for="StartDate" />
+				</div>
+				<br />
+				<br />
+				<br />
+			</div>
+
+			<div class="form-horizontal">
+				<div class="col-md-3 form__label-holder">
+					<label>Конец периода</label>
+				</div>
+				<div class="col-md-5 form__input-holder">
+					<input asp-for="EndDate" />
+				</div>
+				<br />
+				<br />
+				<br />
+			</div>
+
+			<div class="form-horizontal">
+				<div class="col-md-6" style="padding-top: 20px;">
+					<button class="form-control form__btn" style="min-height: 8vh;" type="submit">Экспорт</button>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+@section Scripts
+	{
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$.datetimepicker.setLocale('ru');
+
+			var startDatePicker = $('#@Html.IdFor(x => x.StartDate)'),
+				endDatePicker = $('#@Html.IdFor(x => x.EndDate)');
+
+			var startDatePickerLogic = function (currentDateTime) {
+				startDatePicker.attr('selected-date', currentDateTime.format('yyyy/mm/dd'));
+
+				var endDateValue = endDatePicker.attr('selected-date');
+				this.setOptions({
+					maxDate: (endDateValue != undefined) ? endDateValue : false
+				});
+			};
+
+			var endDatePickerLogic = function (currentDateTime) {
+				endDatePicker.attr('selected-date', currentDateTime.format('yyyy/mm/dd'));
+
+				var startDateValue = startDatePicker.attr('selected-date');
+				this.setOptions({
+					minDate: (startDateValue) ? startDateValue : false
+				});
+			};
+
+			startDatePicker.datetimepicker({
+				format: 'd.m.Y',
+				timepicker: false,
+				onChangeDateTime: startDatePickerLogic,
+				onShow: startDatePickerLogic
+			});
+
+			endDatePicker.datetimepicker({
+				format: 'd.m.Y',
+				timepicker: false,
+				onChangeDateTime: endDatePickerLogic,
+				onShow: endDatePickerLogic
+			});
+		});
+	</script>
+}

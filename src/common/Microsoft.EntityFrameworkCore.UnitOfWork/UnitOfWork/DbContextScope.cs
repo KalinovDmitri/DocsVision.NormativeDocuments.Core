@@ -2,9 +2,9 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.EntityFrameworkCore.UnitOfWork
+namespace Microsoft.EntityFrameworkCore
 {
-	internal class DbContextScope<TContext> : IDbContextScope where TContext : DbContext
+	internal class DbContextScope<TContext> : IDbContextScope<TContext> where TContext : DbContext
 	{
 		private readonly IServiceProvider _serviceProvider;
 
@@ -13,7 +13,7 @@ namespace Microsoft.EntityFrameworkCore.UnitOfWork
 			_serviceProvider = serviceProvider;
 		}
 
-		public DbContext GetContext()
+		public TContext GetContext()
 		{
 			return _serviceProvider.GetService<TContext>();
 		}

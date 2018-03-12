@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Microsoft.EntityFrameworkCore.UnitOfWork
+namespace Microsoft.EntityFrameworkCore
 {
-	public interface IDbContextScope
+	public interface IDbContextScope<TContext> where TContext : DbContext
 	{
 
-		DbContext GetContext();
+		TContext GetContext();
 	}
 }
